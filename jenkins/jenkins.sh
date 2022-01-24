@@ -76,6 +76,7 @@ echo
 
 sleep 2
 yum clean all
+yum install wget net-tools git -y
 yum install jenkins -y
 
 echo "Start jenkins services"
@@ -109,7 +110,7 @@ sleep 2
 echo "done"
 
 echo
-echo " Use this link to access your jenkins server. http://$(hostname -I |awk '{print $1}'):8080"
+echo " Use this link to access your jenkins server. http://$(ifconfig eth1|head -2|tail -1|awk '{print $2}'):8080"
 echo
 exit 0
 
