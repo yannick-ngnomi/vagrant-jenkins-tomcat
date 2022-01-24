@@ -7,6 +7,8 @@
 #Modify: sept 2019
 #Modified sept 2021
 
+## Vars
+VERSION=8.5.75     ## You need to check online on this site for the version https://mirrors.ocf.berkeley.edu/apache/tomcat/tomcat-8 to replace the varibale.
 
 echo -e "\nInstalling tomcat ..\n"
 
@@ -16,8 +18,8 @@ cd /opt
 rm -rf /opt/apache-tomcat-*
 yum install java-1.8* wget vim epel-release -y
 
-wget http://mirrors.ocf.berkeley.edu/apache/tomcat/tomcat-8/v8.5.71/bin/apache-tomcat-8.5.71.tar.gz
-tar -xzvf apache-tomcat-8.5.71.tar.gz
+wget https://mirrors.ocf.berkeley.edu/apache/tomcat/tomcat-8/v${VERSION}/bin/apache-tomcat-${VERSION}-deployer.tar.gz
+tar -xzvf apache-tomcat-${VERSION}.tar.gz
 
 rm -rf apa*.gz
 mv apache* tomcat
@@ -61,7 +63,7 @@ echo
 #service iptables restart
 
 echo
-echo " Use this link to access your tomcat server. http://$(hostname -I |awk '{print $1}'):8080"
+echo " Use this link to access your tomcat server. http://$(ifconfig eth1|head -2|tail -1|awk '{print $2}'):8080"
 echo
 
 
