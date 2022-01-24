@@ -19,7 +19,7 @@ rm -rf /opt/apache-tomcat-*
 yum install java-1.8* wget vim epel-release net-tools git wget vim -y
 
 wget http://mirrors.ocf.berkeley.edu/apache/tomcat/tomcat-8/v${VERSION}/bin/apache-tomcat-${VERSION}.tar.gz
-tar -xzvf apache-tomcat-${VERSION}.tar.gz
+tar -xf apache-tomcat-${VERSION}.tar.gz
 
 rm -rf apa*.gz
 mv apache* tomcat
